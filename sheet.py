@@ -233,3 +233,68 @@ except ZeroDivisionError: #Error handling
    print("An error occurred")
 finally:  #Basically a "default" that will run no matter what
    print("This code will run no matter what")
+   raise ValueError("This is a test") #This will raise the value error
+   #You can give details about the exces by putting it into arg
+
+   try:
+   num = 5 / 0
+except:
+   print("An error occurred")
+   raise #Raise without args can be used to re raise whatevs exce occured
+>>>
+An error occurred
+
+ZeroDivisionError: division by zero
+
+myfile = open("filename.txt") #Before editing a text file, we need to open it
+
+'''
+You can specify the mode used to open a file by applying a second argument to the open function.
+Sending "r" means open in read mode, which is the default. 
+Sending "w" means write mode, for rewriting the contents of a file.
+Sending "a" means append mode, for adding new content to the end of the file.
+
+Adding "b" to a mode opens it in binary mode, which is used for non-text files (such as image and sound files).
+'''
+myfile2 = open("afile.txt", w) #read only is the default mode
+# do stuff to the file
+myfile2.close() #When we're done with the file, we need to close it
+
+file = open("filename.txt", "r") #Reading files
+cont = file.read() #Const is now the whole file's content
+print(cont)
+file.close()
+
+file = open("filename.txt", "r")
+print(file.read(16)) #We can passthe number of bytes we want to read as an arg
+print(file.read(4)) #More calls = more of the file by x bytes
+print(file.read(4))
+print(file.read()) #This prints the rest of the file
+file.close()  #If you try to read th file after it's done reading, it will return an empty string
+
+file = open("newfile.txt", "w") #The w mode creates a file if it doesn't exist
+file.write("This has been written to a file") #This writes, lul
+file.close()
+
+#When a file is opened in read mode, it's contents is deleted
+
+'''
+It is good practice to avoid wasting resources by making sure that files are always
+closed after they have been used. One way of doing this is to use try and finally.
+This ensures that the file is always closed, even if an error occurs.
+'''
+try:
+   f = open("filename.txt")
+   print(f.read())
+finally:
+   f.close()
+'''
+An alternative way of doing this is using with statements.
+This creates a temporary variable (often called f),
+which is only accessible in the indented block of the with statement.
+
+The file is automatically closed at the end of the with statement,
+even if exceptions occur within it.
+'''
+with open("filename.txt") as f:
+  print(f.read())
