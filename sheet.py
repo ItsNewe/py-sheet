@@ -1,7 +1,9 @@
+#MODULES
 import random #That's self explanatory too
 from math import pi, sqrt #We can do this if we only need certain func(s) from a module
 from math import sqrt as square_root #this imports sqrt under a diff name
 
+#BASICS
 print("meme")
 
 5+4-3 
@@ -28,6 +30,7 @@ print(str1)                 #Prints an error, since str1 has been deleted
 Then there is >, <, >=, <=, like in c#
 '''
 
+#LOOPS
 if 10 > 5:                  #py's if doesn't use (),{}. Only :
    print("10 greater than 5")
 else:                       #else is done the same way
@@ -99,7 +102,9 @@ while True:
 
 print("Finished")
 
-words = ["Hello", "world", "!"] #Prints are basically arrays
+
+#LISTS
+words = ["Hello", "world", "!"] #Lists are basically arrays
 print(words[0])
 print(words[1])
 print(words[2])
@@ -164,6 +169,8 @@ for word in words:    #the for loop goes through all items in a list (= foreach)
 for i in range(5): #A range can be used to repeat the action x times
 print("hello!")   #It doesn't need to be listed aw we don't use the indexes
 
+
+#FUNCTIONS
 def my_func(): #def initiates a func
   print("spam") #funcs must be initiated BEFORE the call
   print("spam")
@@ -219,6 +226,7 @@ print(do_twice(add, a, b))
 value = random.randint(1, 6) #this uses the imported module, see on top
 
 
+#EXCEPTIONS
 try:  #self ex
    num1 = 7
    num2 = 0
@@ -246,6 +254,8 @@ An error occurred
 
 ZeroDivisionError: division by zero
 
+
+#FILES
 myfile = open("filename.txt") #Before editing a text file, we need to open it
 
 '''
@@ -298,3 +308,7 @@ even if exceptions occur within it.
 '''
 with open("filename.txt") as f:
   print(f.read())
+
+#>>>>>>the None object is similar to null in other langs
+
+#DICTIONNARIES
