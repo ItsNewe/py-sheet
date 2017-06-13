@@ -217,3 +217,19 @@ b = 10
 print(do_twice(add, a, b))
 
 value = random.randint(1, 6) #this uses the imported module, see on top
+
+
+try:  #self ex
+   num1 = 7
+   num2 = 0
+   print (num1 / num2)
+   print("Done calculation")
+except ZeroDivisionError: #Error handling
+   print("An error occurred")
+   print("due to zero division")
+   except (ValueError, TypeError): #mutliple except blocks can be used
+   print("Error occurred")         #And have mutliple errors to handle
+  except:         #An except block without defined excep will catch all of them
+   print("An error occurred")
+finally:  #Basically a "default" that will run no matter what
+   print("This code will run no matter what")
