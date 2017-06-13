@@ -49,7 +49,7 @@ if num > 5:
    if num <=47:
       print("Between 5 and 47")
                         '''
-                        py uses word for bool logic whereas other languages use &&, ||...
+                        py uses words for bool logic whereas other langs use &&, ||...
                         Those are: and (if both are true, then True, othw False)
                                    or (if 1+ is true, then True, othw False)
                                    not (Only takes 1 arg (not arg), True goes to False and vice versa)
@@ -94,3 +94,52 @@ while True:
    print(i)
 
 print("Finished")
+
+words = ["Hello", "world", "!"] #Prints are basically arrays
+print(words[0])
+print(words[1])
+print(words[2])
+
+number = 3
+things = ["string", 0, [1, 2, number], 4.56] #A list can contain items of multiple types
+print(things[1])
+print(things[2])
+print(things[2][2]) #Lists can be nested (this will print 3
+
+nums = [7, 7, 7, 7, 7]
+nums[2] = 5
+print(nums)
+
+>>>[7, 7, 5, 7, 7]
+
+nums = [1, 2, 3]    #Lists can be added an multiplied the same way as str s
+print(nums + [4, 5, 6])
+print(nums * 3)
+
+words = ["spam", "egg", "spam", "sausage"]
+print("spam" in words) #This will return a bool(True itc) that checks if the item is in the list
+
+nums = [1, 2, 3]
+nums.append(4)  #This will add 4 at the end of the list
+print(nums)
+
+nums = [1, 3, 5, 2, 4]
+print(len(nums))    #len prints the number of items in the list
+
+words = ["Python", "fun"]
+index = 1
+words.insert(index, "is") #similar to append, but lets you insert the item at the index you want
+print(words)
+
+'''
+There are a few more useful functions and methods for lists. 
+max(list): Returns the list item with the maximum value
+min(list): Returns the list item with minimum value
+list.count(obj): Returns a count of how many times an item occurs in a list
+list.remove(obj): Removes an object from a list
+list.reverse(): Reverses objects in a list
+'''
+
+numbers = list(range(10)) #range creates a sequential list of numbers
+print(numbers)
+>>>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
