@@ -143,3 +143,21 @@ list.reverse(): Reverses objects in a list
 numbers = list(range(10)) #range creates a sequential list of numbers
 print(numbers)
 >>>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+numbers = list(range(3, 8)) # This will range all ints from 3 to 8 (2 args)
+print(numbers)
+
+print(range(20) == range(0, 20))
+
+numbers = list(range(5, 20, 2)) #range can hava a trid arg, wich determines the interval of the sequence
+print(numbers)
+>>>
+
+words = ["hello", "world", "spam", "eggs"]
+for word in words:    #the for loop goes through all items in a list (= foreach)
+  print(word + "!")[5, 7, 9, 11, 13, 15, 17, 19]
+
+  for i in range(5): #A range can be used to repeat the action x times
+  print("hello!")   #It doesn't need to be listed aw we don't use the indexes
+
+  
