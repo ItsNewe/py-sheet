@@ -1,3 +1,7 @@
+import random #That's self explanatory too
+from math import pi, sqrt #We can do this if we only need certain func(s) from a module
+from math import sqrt as square_root #this imports sqrt under a diff name
+
 print("meme")
 
 5+4-3 
@@ -157,7 +161,59 @@ words = ["hello", "world", "spam", "eggs"]
 for word in words:    #the for loop goes through all items in a list (= foreach)
   print(word + "!")[5, 7, 9, 11, 13, 15, 17, 19]
 
-  for i in range(5): #A range can be used to repeat the action x times
-  print("hello!")   #It doesn't need to be listed aw we don't use the indexes
+for i in range(5): #A range can be used to repeat the action x times
+print("hello!")   #It doesn't need to be listed aw we don't use the indexes
 
-  
+def my_func(): #def initiates a func
+  print("spam") #funcs must be initiated BEFORE the call
+  print("spam")
+  print("spam")
+
+my_func() #call to the func
+
+def print_with_exclamation(word): #funcs can also take arguments
+   print(word + "!")
+    
+print_with_exclamation("spam")
+print_with_exclamation("eggs")
+print_with_exclamation("python")
+
+excla = print_with_exclamation #funcs can be assigned like any other object
+print(excla("meme"))
+
+def print_sum_twice(x, y): #And multiple args as any other lang :^)
+   print(x + y)
+   print(x + y)
+
+print_sum_twice(5, 8)
+
+def function(variable): #func args can be declared as vars
+   variable += 1
+   print(variable)
+
+function(7)
+
+
+def max(x, y): 
+    if x >=y:
+        return x  #That's pretty self explanatory
+    else:
+        return y  #return ends the punction, so any code after the return statement will be ignored
+        
+print(max(4, 7))
+z = max(8, 5)
+print(z)
+
+
+def add(x, y):
+  return x + y
+
+def do_twice(func, x, y): #hey can also be used as args
+  return func(func(x, y), func(x, y))
+
+a = 5
+b = 10
+
+print(do_twice(add, a, b))
+
+value = random.randint(1, 6) #this uses the imported module, see on top
