@@ -3,7 +3,8 @@
             #           PAR NEWE            #
             #   https://github.com/itsnewe  #
             #################################
-
+# Basé sur plusieurs tutoriels, mais notamment                        #
+# https://openclassrooms.com/courses/apprenez-a-programmer-en-python/ #
 
 #####                                                  #
 # Pour trouver des informations sur un certain élément #
