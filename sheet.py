@@ -1,3 +1,18 @@
+            #################################
+            # FEUILLE DE REVISION DE PYTHON #
+            #           PAR NEWE            #
+            #   https://github.com/itsnewe  #
+            #################################
+
+
+#####                                                  #
+# Pour trouver des informations sur un certain élément #
+# Utiliser CTRL+F et chercher le nom de cet élément    #
+# (par exemple "listes" ou encore "fonctions")         #
+#                                                  #####
+
+#############################################################################
+
 #MODULES
 import random #Importe le module entier
 from math import pi, sqrt #Préférable si on a besoin que de certaines fonctions d'un module
@@ -127,7 +142,7 @@ for i in range(5): #Un range peut être utilisé pour effectuer une action x foi
 #LISTES
 
 words = ["Hello", "world", "!"] #Une liste est une array dans les autres languages
-#/!\ LE PREMIER INEDX D'UNE LISTE EST 0 ET NON 1
+#/!\ LE PREMIER INEDX D'UNE LISTE, COMME TOUT AUTRE OBJET, EST 0 ET NON 1
 print(words[0]) #Pour accéder au premier élément d'une liste, on utilise donc [0]
 print(words[1]) #Le chiffre entre crochet détermine la position de l'élément dans l'array
 print(words[2]) #On appelle ce chiffre "l'index"
@@ -170,6 +185,24 @@ list.count(obj): Renvoie un int équivalent au nombre de fois qu'un item apparai
 list.remove(obj): Supprime un objet de la liste (Mettre en arg l'objet lui même, pas l'index)
 list.reverse(): Mets la liste à l'envers
 '''
+
+#LISTES ET STRINGS
+#Pour convertir une string en list, on utilise la fonction split()
+str = "Hello world!"
+str.split(" ")
+>>>['Hello', 'world!'] 
+'''
+split() utilise le caractère donné pour couper la chaine
+"Hello*world!".split("*") donnera donc le même résultat
+split() possède un paramètre par défaut qui coupe aux espaces, ce qui revient
+donc à ce que l'on vient de faire
+'''
+#Pour faire l'inverse, on utilise la fonction .join()
+liste= ['Hello', 'world!']
+" ".join(liste) #On "soude" tous les items de la liste avec le caractère
+>>>Hello world! #donné entre eux, ici c'est un espace
+
+#Autres trucs
 
 numbers = list(range(10)) #range crée une liste séquentielle de chiffres
 print(numbers)
@@ -313,7 +346,7 @@ finally:
    f.close()
 '''
 Une autre façon de le faire est d'utiliser des boucles with
-Cela crééra une variable temporaire (souvnet appellée "f")
+Cela crééra une variable temporaire (souvent appellée "f")
 qui est accessible seulement a l'intérieur de la boucle.
 
 Le fichier est automatiquement fermé à la fin de la boucle,
@@ -326,3 +359,9 @@ with open("filename.txt") as f:
 
 #TUPLES
 
+#Les tuples sont des objets immutables; c'est à dire que une fois qu'ils sont créés, on ne peut plus les modifier
+#On les utilise rarement mais Python lui les utilisent en fond pour effectuer différentes actions.
+tuple_vide = ()
+tuple_non_vide = (1,) #Est équivalent à ci dessous
+tuple_non_vide = 1, #Attention à la virgule, sans elle ce serait un int
+tuple_avec_plusieurs_valeurs = (1, 2, 5)
