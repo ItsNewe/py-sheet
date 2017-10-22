@@ -9,7 +9,7 @@ print("meme")
 5+4-3 
 2*(3+4)
 
-str1="Ceci ets une string"
+str1="Ceci est une string"
 """Ceci créé
 une string qui va à la newline à chaque fois qu'on appuye sur ENTREE"""
 
@@ -19,7 +19,7 @@ input("Entrer une valeur") #Print le texte entre parenthèses dans la console et
 "2" #Ce n'est pas un int, mais une string
 
 print(int("2")+3) #Convertit 2 en int et effectue l'opération (sans la conversion, une erreur surviendrait)
-value = float(input("Enter a number: ")) #Définit la valeur donnée comme la valeur de la variable, de type float
+value = float(input("Entrez un chiffre à virgule: ")) #Définit la valeur donnée comme la valeur de la variable, de type float
 del str1                    #Supprime la var str1
 print(str1)                 #Erreur, vu que str1 à été supprimée
 
@@ -41,29 +41,29 @@ Il existe d'autres type de comparateurs (bool):
 
 #Les boucles en python n'utilisent pas {}, py utilise l'identation (tabs) et les ":"
 if 10 > 5:                    #En py, les parenthèses pour définir les variables d'une boucle sont optionelles
-   print("10 greater than 5") #(On peut écrire if(var1 == var2): comme on peut écrire if var1==var2:)
+   print("10 est plus grand que 5") #(On peut écrire if(var1 == var2): comme on peut écrire if var1==var2:)
 else:                       
     if 5>10:                #Les boucles if/else peuvent être nestés indéfiniment (nesté = boucle dans une boucle)
-        print("Wait what")
+        print("Uhm..")
     else:
-        print("That doesn't make any sense")
+        print("J'ai beugé")
 
 num = 7
 if num == 5:
-   print("Number is 5")
+   print("Le nombre est 5")
 elif num == 11:             #Utiliser "elif" au lieu de succéder les if() est plus pratique
-   print("Number is 11")
+   print("Le nombre est 11")
 elif num == 7:
-   print("Number is 7")
+   print("Le nombre est 7")
 else:
-   print("Number isn't 5, 11 or 7")
+   print("Le nomnre n'est ni 5, ni 11, ni 7")
 
                             #On peut nester les boucles if comme dans n'mporte quel language
 num = 12
 if num > 5:
-    print("Bigger than 5")
+    print("Plus grand que 5")
     if num <=47:
-      print("Between 5 and 47")
+      print("entre 5 et 47")
       '''
       py utilise des mots pour la logique booléenne là ou d'autres langages 
       utilisent "&&", "||", etc...
@@ -91,28 +91,28 @@ while i <=5: #Une boucle while effectue l'action définie tant que la valeur ren
    i += 1   #Ne pas oublier d'incrémenter 1 pour éviter une boucle infinie
 
 while 1==1:
-  print("In the loop") #Cette boucle est une boucle infinie, car sa valeur restera toujours True
+  print("Vers l'infini et au delà") #Cette boucle est une boucle infinie, car sa valeur restera toujours True
 
 i = 0
 while 1==1:
   print(i)
   i +=1
   if i >= 5:
-    print("Breaking")
+    print("On sort de la loop")
     break                   #Pour sortir d'une boucle, on utilise "break"
 
 i = 0
 while True:
    i += 1
    if i == 2:
-      print("Skipping 2")
+      print("On passe 2")
       continue              #"continue" laisse la boucle s'éxecuter 
    if i == 5:
-      print("Breaking")
+      print("Sortie de la boucle")
       break
    print(i)
 
-print("Finished")
+print("Terminé")
 
 #LA BOUCLE FOR
 
@@ -159,8 +159,7 @@ nums = [1, 3, 5, 2, 4]
 print(len(nums))    #len() print la longueur de l'élément, en l'occurence celle de la liste
 
 words = ["Python", "fun"]
-index = 1
-words.insert(index, "is") #Insère l'argument à l'index choisi
+words.insert(1, "is") #Insère l'argument à l'index choisi, en l'occurence words[1]
 print(words)
 >>>["Python", "is", "fun"]
 '''
@@ -186,35 +185,37 @@ print(numbers)
 >>>
 
 #FONCTIONS
-def my_func(): #def créé une fonction
+def ma_fonc(): #def créé une fonction
   print("spam")
   print("spam")
   print("spam")
 #Les fonctions doivent être créés avant de pouvoir être appelées (comme les variables)
-my_func() #Appelle la fonction
+ma_fonc() #Appelle la fonction
 
-def print_with_exclamation(word): #Les fonctions peuvent prendre des arguments
+def print_avec_exclamation(word): #Les fonctions peuvent prendre des arguments
    print(word + "!")
-    
-print_with_exclamation("spam") #La valeur donnée prend la place de la variable word de la fonction
-print_with_exclamation("eggs")
-print_with_exclamation("python")
 
-excla = print_with_exclamation #Les foncs peuvent être assignées à une variable comme tout autre objet
+#Des fonctions avec un nom court sont préférables, ce nom est un très mauvais exemple
+print_avec_exclamation("spam") #La valeur donnée prend la place de la variable word de la fonction
+print_avec_exclamation("eggs")
+print_avec_exclamation("python")
+
+excla = print_avec_exclamation #Les foncs peuvent être assignées à une variable comme tout autre objet
 print(excla("meme"))
 
-def print_sum_twice(x, y): #Elles peuvent prendre plusieurs arguments
+def somme_deux_fois(x, y): #Elles peuvent prendre plusieurs arguments
    print(x + y)
    print(x + y)
 
-print_sum_twice(5, 8) #Ici, 5=x et 8=y, à cause de leur position
+somme_deux_fois(5, 8) #Ici, 5=x et 8=y, à cause de leur position
 
 
 def max(x, y): 
     if x >=y:
-        return x  #That's pretty self explanatory
+        return x  #Si la valeur du if est True, max renvoie la valeur x
     else:
-        return y  #return ends the punction, so any code after the return statement will be ignored
+        return y  #return met fin à la fonction, tout code présent aprèssera ignoré
+        print("Je ne serais jamais éxecuté")
         
 print(max(4, 7))
 z = max(8, 5)
@@ -226,13 +227,13 @@ def add(x, y=0): #On peut assigner une valeur par défaut à une variable, qui s
 print(add(1)) #1+0
 >>>1
 
-def do_twice(func, x, y): #hey can also be used as args
+def deux_fois(func, x, y): #Une fonc peut être utilisée comme arg
   return func(func(x, y), func(x, y))
 
 a = 5
 b = 10
 
-print(do_twice(add, a, b)) #Les foncs peuvent aussi être utilisées en tant qu'arguments
+print(deux_fois(add, a, b)) #Les foncs peuvent aussi être utilisées en tant qu'arguments
 
 value = random.randint(1, 6) #Ceci est un appel à la fonction randint du module random, importé tout en haut
 
@@ -243,31 +244,31 @@ try:  #Tente d'éxécuter le code
    num1 = 7
    num2 = 0
    print (num1 / num2)
-   print("Done calculation")
+   print("Calcul terminé")
+
 #Si une erreur survient lors de l'éxecution, les blocks except vont s'éxecuter
 except ZeroDivisionError: #Si l'erreur est une erreur de type ZeroDivisionError (div par 0), se block s'éxécute
-   print("An error occurred")
-   print("due to zero division")
+   print("Une erreur est survenue\nCause: Division par zéro")
    except (ValueError, TypeError): #On peut utiliser un même block pour plusieurstypes d'erreurs
-   print("Error occurred")         #And have mutliple errors to handle
+   print("Une erreur de valeur ou de type est survenue") #And have mutliple errors to handle
   except:         #Un block except sans arg s'occupe de toutes les erreurs (ou celles qui ne sont pas égales aux blocks précédents)
-   print("An error occurred")
+   print("Une erreur est survenue")
 finally:  #Un block qui s'éxecute peu importe si il y a eu une erreur ou non
-   print("This code will run no matter what")
-   raise ValueError("This is a test") #Ceci déclenche une erreur de type ValueError
+   print("Ce code va s'éxecuter peu importe ce qui se passe avant")
+   raise ValueError("ceci est un test") #Ceci déclenche une erreur de type ValueError
    #On peut donner des infos sur l'exception en les mettant en arguments
 
    try:
    num = 5 / 0
 except:
-   print("An error occurred")
+   print("Une erreur est survenue")
    raise #Raise sans arg va re-déclencher la dernière erreur qui s'est produite
->>>An error occurred
+>>>Une erreur est survenue
 ZeroDivisionError: division by zero
 
 
 #FICHIERS
-myfile = open("filename.txt") #On ouvre un fichier en vue de le lire ou l'éditer
+fichier = open("filename.txt") #On ouvre un fichier en vue de le lire ou l'éditer
 
 '''
 On peut spécifier le mode d'ouverture d'un fichier en ajoutant un second argument à la fonction open()
@@ -278,27 +279,27 @@ On peut spécifier le mode d'ouverture d'un fichier en ajoutant un second argume
 Ajouter "b" à un mode (rb, wb) ouvre le fichier en mode binaire,
 utile pour les fichier non texte (comme les images and fichiers son).
 '''
-myfile2 = open("afile.txt", "w")
+fichier2 = open("afile.txt", "w")
 # Manipulations avec le fichier
-myfile2.close() #Lorsqu'on en a fini avec le fichier, on doit le fermer
+fichier2.close() #Lorsqu'on en a fini avec le fichier, on doit le fermer
 
-file = open("filename.txt", "r") #Lire des fichiers
+fichier = open("filename.txt", "r") #Lire des fichiers
 cont = file.read() #Cont == le contenu entier du fichier
 print(cont)
-file.close()
+fichier.close()
 
-file = open("filename.txt", "r")
-print(file.read(16)) #WOn peut passer le nombre d'octets du fichier qu'on souhaite lire
-print(file.read(4)) #+ d'appels = + du fichier lu tranche d'octets par tranche d'octets
-print(file.read(4))
-print(file.read()) #Print le reste du fichier
-file.close()  #Si on tente de lire le fichier après avoir atteint la fin, on a une string vide
+fichier = open("filename.txt", "r")
+print(fichier.read(16)) #WOn peut passer le nombre d'octets du fichier qu'on souhaite lire
+print(fichier.read(4)) #+ d'appels = + du fichier lu tranche d'octets par tranche d'octets
+print(fichier.read(4))
+print(fichier.read()) #Print le reste du fichier
+fichier.close()  #Si on tente de lire le fichier après avoir atteint la fin, on a une string vide
 
-file = open("newfile.txt", "w") #Le mode "w" crée un nouveau fichier si il n'existe pas
-file.write("This has been written to a file") #On écrit dans le fichier
-file.close()
+autrefichier = open("newfile.txt", "w") #Le mode "w" crée un nouveau fichier si il n'existe pas
+autrefichier.write("This has been written to a file") #On écrit dans le fichier
+autrefichier.close()
 
-#Quand on ouvre un fichier en mode wrtie, tout le contenu existant précédemment est supprimé
+#Quand on ouvre un fichier en mode write, tout le contenu existant précédemment est supprimé
 
 '''
 Il est de bonne mesure de fermer le fichier après qu'on ai fini de l'utiliser.
