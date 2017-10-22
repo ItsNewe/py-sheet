@@ -3,42 +3,57 @@
             #           PAR NEWE            #
             #   https://github.com/itsnewe  #
             #################################
+
 # Basé sur plusieurs tutoriels, mais notamment                        #
 # https://openclassrooms.com/courses/apprenez-a-programmer-en-python/ #
-
+# # #  /!\ CETTE FICHE N'EST PAS UN TUTO, SIMPLEMENT UN MEMO /!\  # # #
+       **********************************************************
 #####                                                  #
 # Pour trouver des informations sur un certain élément #
 # Utiliser CTRL+F et chercher le nom de cet élément    #
 # (par exemple "listes" ou encore "fonctions")         #
 #                                                  #####
 
+'''
+Ce code n'est pas à exécuter, juste à lire
+">>>" en début de ligne montre ce que le code en question afficherait dans la console
+'''
+
 #############################################################################
 
-#MODULES
+## MODULES
 import random #Importe le module entier
 from math import pi, sqrt #Préférable si on a besoin que de certaines fonctions d'un module
 from math import sqrt as square_root #Importe sqrt() sous un autre nom
 
-#BASES
+## BASES
 print("meme")
 
 5+4-3 
 2*(3+4)
 
-str1="Ceci est une string"
-"""Ceci créé
-une string qui va à la newline à chaque fois qu'on appuye sur ENTREE"""
+str1="Ceci est une string" #On peut utiliser aussi bien "" que ''
+str2='Il faut faire attention aux apostrophes avec ces délimitations, in faut les échapper comme c\'est montré ici"
+str3="Première ligne\nDeuxième ligne" #\n signifie "newline", cela va aller à la ligne
+
+#Ceci est un commentaire, c'est un bout de texte qui ne sera pas interprété par Python
+"""Ceci est un commentaire sur plusieurs lignes,
+quand on les utilise au début d'une fonction pour expliquer son fonctionnement, on appelle ça une docstring
+On peut utiliser les deux types d'apostrophes comme pour une string"""
 
 input("Entrer une valeur") #Print le texte entre parenthèses dans la console et enregistre la valeur 
                            #qu'on tape comme valeur de la variable
-
-"2" #Ce n'est pas un int, mais une string
+                           #A noter que la fonction input() prend une string, pour obtenir un autre type, il faut convertir.
 
 print(int("2")+3) #Convertit 2 en int et effectue l'opération (sans la conversion, une erreur surviendrait)
 value = float(input("Entrez un chiffre à virgule: ")) #Définit la valeur donnée comme la valeur de la variable, de type float
+
+#Les variables, comme tout autre objet, doivent être créées avant de pouvoir être appellées
+str1 = "Bonjour"
 del str1                    #Supprime la var str1
 print(str1)                 #Erreur, vu que str1 à été supprimée
 
+##LES BOOLS (LOGIQUE BOOLEENNE)
 "hello" == "hello" # == est un bool, qui renvoie True ou False (attention aux maj)
                             #/!\ "=" est un assignement tandis que "==" est un bool
 
@@ -52,11 +67,12 @@ Il existe d'autres type de comparateurs (bool):
 
 '''
 
-#BOUCLES (LOOPS)
-#LES BOUCLES IF
+##BOUCLES (LOOPS)
 
-#Les boucles en python n'utilisent pas {}, py utilise l'identation (tabs) et les ":"
-if 10 > 5:                    #En py, les parenthèses pour définir les variables d'une boucle sont optionelles
+##LES BOUCLES IF
+'''Les boucles en python n'utilisent pas {}, py utilise l'identation (tabs) et les ":" '''
+
+if 10 > 5:                          #En py, les parenthèses pour définir les variables d'une boucle sont optionelles
    print("10 est plus grand que 5") #(On peut écrire if(var1 == var2): comme on peut écrire if var1==var2:)
 else:                       
     if 5>10:                #Les boucles if/else peuvent être nestés indéfiniment (nesté = boucle dans une boucle)
@@ -80,17 +96,19 @@ if num > 5:
     print("Plus grand que 5")
     if num <=47:
       print("entre 5 et 47")
-      '''
-      py utilise des mots pour la logique booléenne là ou d'autres langages 
-      utilisent "&&", "||", etc...
-      Ces mots sont: 
-      and = (Si les deux sont True; renvoie True)
-      or = (Si au moins 1 arg est True; renvoie True)
-      not = (Prend seulement 1 arg. Si la var est True; renvoie False et inversement)
-      '''
+
 '''
 py utilise le même ordre de priorité qu'en maths
-("*" & "/" avant "+" & "-")
+(Les parenthèses en priorités, puis "*" & "/", et enfin "+" & "-")
+'''
+
+'''
+py utilise des mots pour la logique booléenne là ou d'autres langages 
+utilisent "&&", "||", etc...
+Ces mots sont: 
+and = (Si les deux sont True; renvoie True)
+or = (Si au moins 1 arg est True; renvoie True)
+not = (Prend seulement 1 arg. Si la var est True; renvoie False et inversement)
 '''
 >>> False == False or True # "==" passe avant le "or"
 True
@@ -99,10 +117,11 @@ False
 >>> (False == False) or True
 True
 
-#LES BOUCLES WHILE
+##LES BOUCLES WHILE
+'''Une boucle while effectue l'action définie tant que la valeur renvoie True'''
 
 i = 1
-while i <=5: #Une boucle while effectue l'action définie tant que la valeur renvoie True
+while i <=5:
    print(i) #Celle ci va compter jusqu'à 5 puis s'arrêter
    i += 1   #Ne pas oublier d'incrémenter 1 pour éviter une boucle infinie
 
@@ -130,23 +149,25 @@ while True:
 
 print("Terminé")
 
-#LA BOUCLE FOR
+## LA BOUCLE FOR
 
 words = ["hello", "world", "spam", "eggs"]
 for word in words:    #La boucle for analyse tous les items que contient un élément
   print(word + "!")
 >>>hello! world! spam! eggs!
+
 for i in range(5): #Un range peut être utilisé pour effectuer une action x fois (comme un while)
-  print("hello!")   #Pas besoin d'être listé et n'utilise pas les indexes
+  print("hello!")  #La valeur s'incrémente automatiquement, pas besoin donc d'ajouter "i+=1" à la fin
 
 
-#LISTES
-
-words = ["Hello", "world", "!"] #Une liste est une array dans les autres languages
-#/!\ LE PREMIER INEDX D'UNE LISTE, COMME TOUT AUTRE OBJET, EST 0 ET NON 1
+##LISTES
+'''Une liste est une sorte de "tiroir" qui permet de ranger différents éléments'''
+words = ["Hello", "world", "!"]
+#Pour naviguer dans une liste, on utilise l'indexation, qui est la position de l'élément recherché dans la liste
+#/!\ LE PREMIER INDEX D'UNE LISTE, COMME TOUT AUTRE OBJET, EST 0 ET NON 1
 print(words[0]) #Pour accéder au premier élément d'une liste, on utilise donc [0]
 print(words[1]) #Le chiffre entre crochet détermine la position de l'élément dans l'array
-print(words[2]) #On appelle ce chiffre "l'index"
+print(words[2]) #Ici, "Hello"=0, "world"=1, "!"=2
 
 number = 3
 things = ["string", 0, [1, 2, number], 4.56] #Une liste peut contenir des éléments de tous types
@@ -187,7 +208,7 @@ list.remove(obj): Supprime un objet de la liste (Mettre en arg l'objet lui même
 list.reverse(): Mets la liste à l'envers
 '''
 
-#LISTES ET STRINGS
+##LISTES ET STRINGS
 #Pour convertir une string en list, on utilise la fonction split()
 str = "Hello world!"
 str.split(" ")
@@ -203,7 +224,7 @@ liste= ['Hello', 'world!']
 " ".join(liste) #On "soude" tous les items de la liste avec le caractère
 >>>Hello world! #donné entre eux, ici c'est un espace
 
-#Autres trucs
+##LES RANGES
 
 numbers = list(range(10)) #range crée une liste séquentielle de chiffres
 print(numbers)
@@ -217,6 +238,16 @@ range(20) == range(0, 20)
 numbers = list(range(5, 20, 2)) #range peut avoir un 3eme arg, qui détermine l'intervalle de la séquence
 print(numbers)
 >>>
+
+##COMPREHENSIONS DE LISTES
+'''
+Les compréhensions de liste sont un moyen de filtrer ou modifier une liste très simplement.
+'''
+liste_origine = [0, 1, 2, 3, 4, 5]
+[nb**2 for nb in liste_origine if nb %2==0] #Met au carré chaque élément "nb" trouvé dans "liste_origine"
+>>>[0, 1, 4, 9, 16, 25]        -----------  #On peut ajouter une condition comme vu en fin de ligne avec le "if"
+
+
 
 #FONCTIONS
 def ma_fonc(): #def créé une fonction
@@ -271,7 +302,13 @@ print(deux_fois(add, a, b)) #Les foncs peuvent aussi être utilisées en tant qu
 
 value = random.randint(1, 6) #Ceci est un appel à la fonction randint du module random, importé tout en haut
 
-#!!!!!! METTRE LES TRUCS AVEC LES ARGUMENTS OPTIONNELS
+def lister(*args): #Un arg précédé indique un nombre indéfini d'arguments, ils peuvent donc être infinis
+  print("J'ai reçu {0}".format("args"))
+
+#On peut utiliser une liste en arguments d'une fonction
+liste_test = [1, 2, 3, 4]
+print(lister(*liste_test))
+>>>"J'ai reçu 1 2 3 4"
 
 #EXCEPTIONS
 try:  #Tente d'éxécuter le code
