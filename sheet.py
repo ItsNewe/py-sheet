@@ -1,100 +1,112 @@
 #MODULES
-import random #That's self explanatory too
-from math import pi, sqrt #We can do this if we only need certain func(s) from a module
-from math import sqrt as square_root #this imports sqrt under a diff name
+import random #Importe le module entier
+from math import pi, sqrt #Préférable si on a besoin que de certaines fonctions d'un module
+from math import sqrt as square_root #Importe sqrt() sous un autre nom
 
-#BASICS
+#BASES
 print("meme")
 
 5+4-3 
 2*(3+4)
 
-str1="This is a string"
-"""This will create
-a string wich goes to a new line everytime ENTER is pressed"""
+str1="Ceci ets une string"
+"""Ceci créé
+une string qui va à la newline à chaque fois qu'on appuye sur ENTREE"""
 
-input("enter something")
+input("Entrer une valeur") #Print le texte entre parenthèses dans la console et enregistre la valeur 
+                           #qu'on tape comme valeur de la variable
 
-"2" # this is not an int, but a str
+"2" #Ce n'est pas un int, mais une string
 
-print(int("2")+3) #converts the "2" str to an int and processes it
-float(input("Enter a number: ")) #Sets the input as the var value
-del str1                    #Deletes the str1 var
-print(str1)                 #Prints an error, since str1 has been deleted
+print(int("2")+3) #Convertit 2 en int et effectue l'opération (sans la conversion, une erreur surviendrait)
+value = float(input("Enter a number: ")) #Définit la valeur donnée comme la valeur de la variable, de type float
+del str1                    #Supprime la var str1
+print(str1)                 #Erreur, vu que str1 à été supprimée
 
-"hello" == "hello" # == is a bool, wich returns True and False (watch out uppercase)
-                            #/!\ = is an assignment while == is a bool
+"hello" == "hello" # == est un bool, qui renvoie True ou False (attention aux maj)
+                            #/!\ "=" est un assignement tandis que "==" est un bool
 
-1 != 1 #Other type of bool, this will print false because it isn't not equal
+var1 != var2 #Un autre type de bool, qui renvoie True si var1 n'est pas égal à var2 et inversement
 '''
-Then there is >, <, >=, <=, like in c#
+Il existe d'autres type de comparateurs (bool):
+> : Renvoie True si var1 est plus grand que var2
+< : Renvoie True si var1 est plus petit que var2
+>= : Renvoie True si var1 est supérieur ou égal à var2
+<= : Renvoie True si var1 est inférieur ou égal à var2
+
 '''
 
-#LOOPS
-if 10 > 5:                  #py's if doesn't use (),{}. Only :
-   print("10 greater than 5")
-else:                       #else is done the same way
-    if 5>10:                #if/else statements can be nested indefinitely
-    print("Wait what")
+#BOUCLES (LOOPS)
+#LES BOUCLES IF
+
+#Les boucles en python n'utilisent pas {}, py utilise l'identation (tabs) et les ":"
+if 10 > 5:                    #En py, les parenthèses pour définir les variables d'une boucle sont optionelles
+   print("10 greater than 5") #(On peut écrire if(var1 == var2): comme on peut écrire if var1==var2:)
+else:                       
+    if 5>10:                #Les boucles if/else peuvent être nestés indéfiniment (nesté = boucle dans une boucle)
+        print("Wait what")
     else:
         print("That doesn't make any sense")
 
 num = 7
 if num == 5:
    print("Number is 5")
-elif num == 11:             #We use elif(else if) because it is more practical than the above code
+elif num == 11:             #Utiliser "elif" au lieu de succéder les if() est plus pratique
    print("Number is 11")
 elif num == 7:
    print("Number is 7")
 else:
    print("Number isn't 5, 11 or 7")
 
-                            #if statements can be nested, as in any other language
+                            #On peut nester les boucles if comme dans n'mporte quel language
 num = 12
 if num > 5:
-   print("Bigger than 5")
-   if num <=47:
+    print("Bigger than 5")
+    if num <=47:
       print("Between 5 and 47")
-                        '''
-                        py uses words for bool logic whereas other langs use &&, ||...
-                        Those are: and (if both are true, then True, othw False)
-                                   or (if 1+ is true, then True, othw False)
-                                   not (Only takes 1 arg (not arg), True goes to False and vice versa)
-                        '''
+      '''
+      py utilise des mots pour la logique booléenne là ou d'autres langages 
+      utilisent "&&", "||", etc...
+      Ces mots sont: 
+      and = (Si les deux sont True; renvoie True)
+      or = (Si au moins 1 arg est True; renvoie True)
+      not = (Prend seulement 1 arg. Si la var est True; renvoie False et inversement)
+      '''
 '''
-py uses the same idea of order of operations than maths
-(* and / before + and -, etc...)
+py utilise le même ordre de priorité qu'en maths
+("*" & "/" avant "+" & "-")
 '''
->>> False == False or True # == is more important than the or statement
+>>> False == False or True # "==" passe avant le "or"
 True
->>> False == (False or True) #brackets do the same thing than in maths
+>>> False == (False or True) #Comme en maths, les parenthèses sont prioritaires
 False
 >>> (False == False) or True
 True
 
+#LES BOUCLES WHILE
 
 i = 1
-while i <=5: #This while loop will count to 5 then stop
-   print(i)
-   i += 1
+while i <=5: #Une boucle while effectue l'action définie tant que la valeur renvoie True
+   print(i) #Celle ci va compter jusqu'à 5 puis s'arrêter
+   i += 1   #Ne pas oublier d'incrémenter 1 pour éviter une boucle infinie
 
 while 1==1:
-  print("In the loop") #This is an infinite loop and would never stop running
+  print("In the loop") #Cette boucle est une boucle infinie, car sa valeur restera toujours True
 
 i = 0
 while 1==1:
   print(i)
-  i = i + 1
+  i +=1
   if i >= 5:
     print("Breaking")
-    break                   #To stop a loop prematurely, we use the break statement
+    break                   #Pour sortir d'une boucle, on utilise "break"
 
 i = 0
 while True:
-   i = i +1
+   i += 1
    if i == 2:
       print("Skipping 2")
-      continue              #the continue statement moves onto the next iteration
+      continue              #"continue" laisse la boucle s'éxecuter 
    if i == 5:
       print("Breaking")
       break
@@ -102,103 +114,100 @@ while True:
 
 print("Finished")
 
+#LA BOUCLE FOR
 
-#LISTS
-words = ["Hello", "world", "!"] #Lists are basically arrays
-print(words[0])
-print(words[1])
-print(words[2])
+words = ["hello", "world", "spam", "eggs"]
+for word in words:    #La boucle for analyse tous les items que contient un élément
+  print(word + "!")
+>>>hello! world! spam! eggs!
+for i in range(5): #Un range peut être utilisé pour effectuer une action x fois (comme un while)
+  print("hello!")   #Pas besoin d'être listé et n'utilise pas les indexes
+
+
+#LISTES
+
+words = ["Hello", "world", "!"] #Une liste est une array dans les autres languages
+#/!\ LE PREMIER INEDX D'UNE LISTE EST 0 ET NON 1
+print(words[0]) #Pour accéder au premier élément d'une liste, on utilise donc [0]
+print(words[1]) #Le chiffre entre crochet détermine la position de l'élément dans l'array
+print(words[2]) #On appelle ce chiffre "l'index"
 
 number = 3
-things = ["string", 0, [1, 2, number], 4.56] #A list can contain items of multiple types
+things = ["string", 0, [1, 2, number], 4.56] #Une liste peut contenir des éléments de tous types
 print(things[1])
 print(things[2])
-print(things[2][2]) #Lists can be nested (this will print 3
+print(things[2][2]) #Les listes peuvent être nestés (ceci va print 3)
 
-nums = [7, 7, 7, 7, 7]
-nums[2] = 5
+nums = [1, 2, 3, 4, 5]
+nums[2] = 5 #Remplace "3" par "5"
 print(nums)
 
 >>>[7, 7, 5, 7, 7]
 
-nums = [1, 2, 3]    #Lists can be added an multiplied the same way as str s
+nums = [1, 2, 3]    #Les listes peuvent être concaténées, tout comme les str
 print(nums + [4, 5, 6])
 print(nums * 3)
 
 words = ["spam", "egg", "spam", "sausage"]
-print("spam" in words) #This will return a bool(True itc) that checks if the item is in the list
+print("spam" in words) #Cela retourne True si "spam" est trouvé dans la liste
 
 nums = [1, 2, 3]
-nums.append(4)  #This will add 4 at the end of the list
+nums.append(4)  #La méthode append() va rajouter l'argument donné à la fin de la liste
 print(nums)
 
 nums = [1, 3, 5, 2, 4]
-print(len(nums))    #len prints the number of items in the list
+print(len(nums))    #len() print la longueur de l'élément, en l'occurence celle de la liste
 
 words = ["Python", "fun"]
 index = 1
-words.insert(index, "is") #similar to append, but lets you insert the item at the index you want
+words.insert(index, "is") #Insère l'argument à l'index choisi
 print(words)
-
+>>>["Python", "is", "fun"]
 '''
-There are a few more useful functions and methods for lists. 
-max(list): Returns the list item with the maximum value
-min(list): Returns the list item with minimum value
-list.count(obj): Returns a count of how many times an item occurs in a list
-list.remove(obj): Removes an object from a list
-list.reverse(): Reverses objects in a list
+Il existe un tas de fonctions pour les listes, en voici quelques unes: 
+max(list): Renvoie l'élément de la liste ayant la plus grande valeur
+min(list): Renvoie l'élément de la liste ayant la plus petite valeur
+list.count(obj): Renvoie un int équivalent au nombre de fois qu'un item apparait dans la liste
+list.remove(obj): Supprime un objet de la liste (Mettre en arg l'objet lui même, pas l'index)
+list.reverse(): Mets la liste à l'envers
 '''
 
-numbers = list(range(10)) #range creates a sequential list of numbers
+numbers = list(range(10)) #range crée une liste séquentielle de chiffres
 print(numbers)
 >>>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-numbers = list(range(3, 8)) # This will range all ints from 3 to 8 (2 args)
+numbers = list(range(3, 8)) #range les chiffres entre 3 et 8 (2 args)
 print(numbers)
 
-print(range(20) == range(0, 20))
+range(20) == range(0, 20)
 
-numbers = list(range(5, 20, 2)) #range can hava a trid arg, wich determines the interval of the sequence
+numbers = list(range(5, 20, 2)) #range peut avoir un 3eme arg, qui détermine l'intervalle de la séquence
 print(numbers)
 >>>
 
-words = ["hello", "world", "spam", "eggs"]
-for word in words:    #the for loop goes through all items in a list (= foreach)
-  print(word + "!")[5, 7, 9, 11, 13, 15, 17, 19]
-
-for i in range(5): #A range can be used to repeat the action x times
-print("hello!")   #It doesn't need to be listed aw we don't use the indexes
-
-
-#FUNCTIONS
-def my_func(): #def initiates a func
-  print("spam") #funcs must be initiated BEFORE the call
+#FONCTIONS
+def my_func(): #def créé une fonction
   print("spam")
   print("spam")
+  print("spam")
+#Les fonctions doivent être créés avant de pouvoir être appelées (comme les variables)
+my_func() #Appelle la fonction
 
-my_func() #call to the func
-
-def print_with_exclamation(word): #funcs can also take arguments
+def print_with_exclamation(word): #Les fonctions peuvent prendre des arguments
    print(word + "!")
     
-print_with_exclamation("spam")
+print_with_exclamation("spam") #La valeur donnée prend la place de la variable word de la fonction
 print_with_exclamation("eggs")
 print_with_exclamation("python")
 
-excla = print_with_exclamation #funcs can be assigned like any other object
+excla = print_with_exclamation #Les foncs peuvent être assignées à une variable comme tout autre objet
 print(excla("meme"))
 
-def print_sum_twice(x, y): #And multiple args as any other lang :^)
+def print_sum_twice(x, y): #Elles peuvent prendre plusieurs arguments
    print(x + y)
    print(x + y)
 
-print_sum_twice(5, 8)
-
-def function(variable): #func args can be declared as vars
-   variable += 1
-   print(variable)
-
-function(7)
+print_sum_twice(5, 8) #Ici, 5=x et 8=y, à cause de leur position
 
 
 def max(x, y): 
@@ -212,8 +221,10 @@ z = max(8, 5)
 print(z)
 
 
-def add(x, y):
-  return x + y
+def add(x, y=0): #On peut assigner une valeur par défaut à une variable, qui sera utilisée si
+  return x + y   #aucune valeur n'est donnée lors de l'appel, dans le cas contraire on utilise celle de l'appel
+print(add(1)) #1+0
+>>>1
 
 def do_twice(func, x, y): #hey can also be used as args
   return func(func(x, y), func(x, y))
@@ -221,77 +232,78 @@ def do_twice(func, x, y): #hey can also be used as args
 a = 5
 b = 10
 
-print(do_twice(add, a, b))
+print(do_twice(add, a, b)) #Les foncs peuvent aussi être utilisées en tant qu'arguments
 
-value = random.randint(1, 6) #this uses the imported module, see on top
+value = random.randint(1, 6) #Ceci est un appel à la fonction randint du module random, importé tout en haut
 
+#!!!!!! METTRE LES TRUCS AVEC LES ARGUMENTS OPTIONNELS
 
 #EXCEPTIONS
-try:  #self ex
+try:  #Tente d'éxécuter le code
    num1 = 7
    num2 = 0
    print (num1 / num2)
    print("Done calculation")
-except ZeroDivisionError: #Error handling
+#Si une erreur survient lors de l'éxecution, les blocks except vont s'éxecuter
+except ZeroDivisionError: #Si l'erreur est une erreur de type ZeroDivisionError (div par 0), se block s'éxécute
    print("An error occurred")
    print("due to zero division")
-   except (ValueError, TypeError): #mutliple except blocks can be used
+   except (ValueError, TypeError): #On peut utiliser un même block pour plusieurstypes d'erreurs
    print("Error occurred")         #And have mutliple errors to handle
-  except:         #An except block without defined excep will catch all of them
+  except:         #Un block except sans arg s'occupe de toutes les erreurs (ou celles qui ne sont pas égales aux blocks précédents)
    print("An error occurred")
-finally:  #Basically a "default" that will run no matter what
+finally:  #Un block qui s'éxecute peu importe si il y a eu une erreur ou non
    print("This code will run no matter what")
-   raise ValueError("This is a test") #This will raise the value error
-   #You can give details about the exces by putting it into arg
+   raise ValueError("This is a test") #Ceci déclenche une erreur de type ValueError
+   #On peut donner des infos sur l'exception en les mettant en arguments
 
    try:
    num = 5 / 0
 except:
    print("An error occurred")
-   raise #Raise without args can be used to re raise whatevs exce occured
->>>
-An error occurred
-
+   raise #Raise sans arg va re-déclencher la dernière erreur qui s'est produite
+>>>An error occurred
 ZeroDivisionError: division by zero
 
 
-#FILES
-myfile = open("filename.txt") #Before editing a text file, we need to open it
+#FICHIERS
+myfile = open("filename.txt") #On ouvre un fichier en vue de le lire ou l'éditer
 
 '''
-You can specify the mode used to open a file by applying a second argument to the open function.
-Sending "r" means open in read mode, which is the default. 
-Sending "w" means write mode, for rewriting the contents of a file.
-Sending "a" means append mode, for adding new content to the end of the file.
+On peut spécifier le mode d'ouverture d'un fichier en ajoutant un second argument à la fonction open()
+"r" = read mode; mode lecture. C'est le mode par défaut. 
+"w" = write mode; mode écriture. Supprime tout le contenu d'un fichier pour réecrire dessus.
+"a" = append mode; mode ajout. Ajoute le texte donné après les données existantes.
 
-Adding "b" to a mode opens it in binary mode, which is used for non-text files (such as image and sound files).
+Ajouter "b" à un mode (rb, wb) ouvre le fichier en mode binaire,
+utile pour les fichier non texte (comme les images and fichiers son).
 '''
-myfile2 = open("afile.txt", w) #read only is the default mode
-# do stuff to the file
-myfile2.close() #When we're done with the file, we need to close it
+myfile2 = open("afile.txt", "w")
+# Manipulations avec le fichier
+myfile2.close() #Lorsqu'on en a fini avec le fichier, on doit le fermer
 
-file = open("filename.txt", "r") #Reading files
-cont = file.read() #Const is now the whole file's content
+file = open("filename.txt", "r") #Lire des fichiers
+cont = file.read() #Cont == le contenu entier du fichier
 print(cont)
 file.close()
 
 file = open("filename.txt", "r")
-print(file.read(16)) #We can passthe number of bytes we want to read as an arg
-print(file.read(4)) #More calls = more of the file by x bytes
+print(file.read(16)) #WOn peut passer le nombre d'octets du fichier qu'on souhaite lire
+print(file.read(4)) #+ d'appels = + du fichier lu tranche d'octets par tranche d'octets
 print(file.read(4))
-print(file.read()) #This prints the rest of the file
-file.close()  #If you try to read th file after it's done reading, it will return an empty string
+print(file.read()) #Print le reste du fichier
+file.close()  #Si on tente de lire le fichier après avoir atteint la fin, on a une string vide
 
-file = open("newfile.txt", "w") #The w mode creates a file if it doesn't exist
-file.write("This has been written to a file") #This writes, lul
+file = open("newfile.txt", "w") #Le mode "w" crée un nouveau fichier si il n'existe pas
+file.write("This has been written to a file") #On écrit dans le fichier
 file.close()
 
-#When a file is opened in read mode, it's contents is deleted
+#Quand on ouvre un fichier en mode wrtie, tout le contenu existant précédemment est supprimé
 
 '''
-It is good practice to avoid wasting resources by making sure that files are always
-closed after they have been used. One way of doing this is to use try and finally.
-This ensures that the file is always closed, even if an error occurs.
+Il est de bonne mesure de fermer le fichier après qu'on ai fini de l'utiliser.
+Une bonne façon de faire cela est d'utiliser try et finally.
+Cela nous assure que le fichier sera fermé, même si une erreur survient.
 '''
 try:
    f = open("filename.txt")
@@ -299,16 +311,17 @@ try:
 finally:
    f.close()
 '''
-An alternative way of doing this is using with statements.
-This creates a temporary variable (often called f),
-which is only accessible in the indented block of the with statement.
+Une autre façon de le faire est d'utiliser des boucles with
+Cela crééra une variable temporaire (souvnet appellée "f")
+qui est accessible seulement a l'intérieur de la boucle.
 
-The file is automatically closed at the end of the with statement,
-even if exceptions occur within it.
+Le fichier est automatiquement fermé à la fin de la boucle,
+même si des exceptions surviennent.
 '''
 with open("filename.txt") as f:
   print(f.read())
 
-#>>>>>>the None object is similar to null in other langs
+#L'objet None est le même que dans d'autres languages, il représente un objet nul.
 
-#DICTIONNARIES
+#TUPLES
+
