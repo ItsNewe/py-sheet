@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
             #################################
             # FEUILLE DE REVISION DE PYTHON #
             #           PAR NEWE            #
@@ -7,7 +8,7 @@
 # Basé sur plusieurs tutoriels, mais notamment                        #
 # https://openclassrooms.com/courses/apprenez-a-programmer-en-python/ #
 # # #  /!\ CETTE FICHE N'EST PAS UN TUTO, SIMPLEMENT UN MEMO /!\  # # #
-       **********************************************************
+      ***********************************************************
 #####                                                  #
 # Pour trouver des informations sur un certain élément #
 # Utiliser CTRL+F et chercher le nom de cet élément    #
@@ -18,8 +19,8 @@
 Ce code n'est pas à exécuter, juste à lire
 ">>>" en début de ligne montre ce que le code en question afficherait dans la console
 '''
-
-#############################################################################
+248 = WIP
+############################################################################
 
 ## MODULES
 import random #Importe le module entier
@@ -69,7 +70,7 @@ Il existe d'autres type de comparateurs (bool):
 
 ##BOUCLES (LOOPS)
 
-##LES BOUCLES IF
+##LA BOUCLE IF
 '''Les boucles en python n'utilisent pas {}, py utilise l'identation (tabs) et les ":" '''
 
 if 10 > 5:                          #En py, les parenthèses pour définir les variables d'une boucle sont optionelles
@@ -117,7 +118,7 @@ False
 >>> (False == False) or True
 True
 
-##LES BOUCLES WHILE
+##LA BOUCLE WHILE
 '''Une boucle while effectue l'action définie tant que la valeur renvoie True'''
 
 i = 1
@@ -149,7 +150,7 @@ while True:
 
 print("Terminé")
 
-## LA BOUCLE FOR
+## LA BOUCLE FOR_IN
 
 words = ["hello", "world", "spam", "eggs"]
 for word in words:    #La boucle for analyse tous les items que contient un élément
@@ -159,6 +160,11 @@ for word in words:    #La boucle for analyse tous les items que contient un él�
 for i in range(5): #Un range peut être utilisé pour effectuer une action x fois (comme un while)
   print("hello!")  #La valeur s'incrémente automatiquement, pas besoin donc d'ajouter "i+=1" à la fin
 
+## LA BOUCLE IF_IN
+car = "e" # Cette boucle vérifie la présence d'un élément dans une séquence
+voyelles = "aeiouyAEIOUYàâéèêëùîï" # Cela fontionne aussi avec les listes
+if car in voyelles:
+   print(car, "est une voyelle")
 
 ##LISTES
 '''Une liste est une sorte de "tiroir" qui permet de ranger différents éléments'''
@@ -219,10 +225,23 @@ split() utilise le caractère donné pour couper la chaine
 split() possède un paramètre par défaut qui coupe aux espaces, ce qui revient
 donc à ce que l'on vient de faire
 '''
+
 #Pour faire l'inverse, on utilise la fonction .join()
 liste= ['Hello', 'world!']
 " ".join(liste) #On "soude" tous les items de la liste avec le caractère
 >>>Hello world! #donné entre eux, ici c'est un espace
+
+#FONCTIONS UTILES POUR LES STRINGS
+find(stri) #Cherche la position d'une string dans une autre
+count(stri) #Compte le nombre d'occurences de stri dans la chaine
+lower() #Convertit une chaine en minuscules
+upper() #Convertit une chaine en majuscules
+title() #Convertit en majuscule l'initiale de chaque mot
+capitalize() #Convertit en majuscule la première lettre de la chaine
+swapcase() #Convertit toutes les majuscules en minuscules et inversmeent
+strip() #Enlève les espaces éventuels au début et à la fin de la chaine
+replace(ch1, ch2) #remplace tous les cars ch1 par ch2 dans la chaine
+index(ch) #trouve l'index de la première occurence de ch dans la chaine
 
 ##LES RANGES
 
@@ -246,6 +265,62 @@ Les compréhensions de liste sont un moyen de filtrer ou modifier une liste trè
 liste_origine = [0, 1, 2, 3, 4, 5]
 [nb**2 for nb in liste_origine if nb %2==0] #Met au carré chaque élément "nb" trouvé dans "liste_origine"
 >>>[0, 1, 4, 9, 16, 25]        -----------  #On peut ajouter une condition comme vu en fin de ligne avec le "if"
+
+#FRAGMENTS DE CHAINES
+ch = "test"
+print(ch[n,m)] #Le n^è caractère est inclus mais pas le m^è
+print(ch[0:3)]
+>>>Jul
+print(ch[:3])
+>>>Jul
+print(ch[3:])
+>>>iette
+##LES DICTIONNAIRES
+monDict = dict() #Deux façons de créer un dictionnaire
+monDict = {}
+
+monDict["id"] = "testest" #On insère un élément similairement à comme pour une liste
+monDict["mdp"] = "*"
+monDict
+>>> {'mdp': '*', 'id': 'testest'}
+monDict["id"]="abcde" #Comme pour les vars, la valeur a été remplacée
+
+print(monDict["id"]) #Accès a la valeur de la clé
+
+placard = {"chemise":3, "pantalon":6, "tee-shirt":7}#On peut créér des disctionnaires pré remplis
+
+del placard["chemise"] #On paut supprimer une clé et sa valeur de 2 façons
+placard.pop("chemise") #La différence est qu'avec pop, la valeur supprimée est retournée
+>>> 3
+
+#PARCOURS DU DICTIONNAIRE
+fruits = {"pommes":21, "melons":3, "poires":31}
+
+for cle in fruits.keys(): #Afficher les clés
+   print(cle)
+>>>pommes
+>>>melons
+>>>poires
+
+for valeur in fruits.values(): #Afficher les valeurs
+   print(valeur)
+>>> >>> 3
+>>> 31
+
+for cle, valeur in fruits.items(): #Afficher la clé et sa valeur
+   print("La clé {} contient la valeur {}.".format(cle, valeur))
+>>> La clé melons contient la valeur 3.
+>>> La clé poires contient la valeur 31.
+>>> La clé pommes contient la valeur 21.
+
+#RECUPERER DES PARAMETRES NOMMES DANS UN DICT
+def fonction_inconnue(*en_liste, **en_dictionnaire): #Cette fonction permettra de capturer tous types de paramètres, nommés ou non
+   
+#On peut aussi utiliser un dictionnaire en tant que conteneurde paramètres nommés
+parametres = {"sep":" >> ", "end":" -\n"}
+print("Voici", "un", "exemple", "d'appel", **parametres)
+>>> Voici >> un >> exemple >> d'appel 
+#248
 
 
 
@@ -338,7 +413,7 @@ except:
 ZeroDivisionError: division by zero
 
 
-#FICHIERS
+##FICHIERS
 fichier = open("filename.txt") #On ouvre un fichier en vue de le lire ou l'éditer
 
 '''
@@ -373,7 +448,7 @@ autrefichier.close()
 #Quand on ouvre un fichier en mode write, tout le contenu existant précédemment est supprimé
 
 '''
-Il est de bonne mesure de fermer le fichier après qu'on ai fini de l'utiliser.
+Il est de bonne mesure de fermer le fichier après qu'n ai fini de l'utiliser.
 Une bonne façon de faire cela est d'utiliser try et finally.
 Cela nous assure que le fichier sera fermé, même si une erreur survient.
 '''
@@ -384,8 +459,8 @@ finally:
    f.close()
 '''
 Une autre façon de le faire est d'utiliser des boucles with
-Cela crééra une variable temporaire (souvent appellée "f")
-qui est accessible seulement a l'intérieur de la boucle.
+Cela crééra une variable temporaire qui est accessible
+seulement a l'intérieur de la boucle.
 
 Le fichier est automatiquement fermé à la fin de la boucle,
 même si des exceptions surviennent.
@@ -393,12 +468,62 @@ même si des exceptions surviennent.
 with open("filename.txt") as f:
   print(f.read())
 
-#L'objet None est le même que dans d'autres languages, il représente un objet nul.
+#ECRITURE/LECTURE EN OCTETS (BYTES)
+chaine = "Amélie et Eugène\n"
+of =open("test.txt", "rb")
+octets =of.read()
+of.close()
+type(octets)
+>>> <class 'bytes'>
 
+print(octets)
+>>> b'Am\xc3\xa9lie et Eug\xc3\xa8ne\n'
+
+#ENREGISTRER DES OBJETS DANS UN FICHIER AVEC PICKLE
+import pickle #Ce module permet d'enregistrer et de restituer des objets dans et depuis un fichier texte
+
+score = {
+   "joueur 1":    5,
+   "joueur 2":   35,
+   "joueur 3":   20,
+   "joueur 4":    2,
+}
+
+with open('donnees', 'wb') as fichier: #Sauvegarde d'un objet dans un fichier
+     monPickler = pickle.Pickler(fichier)
+     monPickler.dump(score)
+
+with open('donnees', 'rb') as fichier: #Lecture de l'objet contenu dans le fichier
+     monDepickler = pickle.Unpickler(fichier)
+     scoreRecup = mon_depickler.load()
+
+
+#ENCODAGE & DECODAGE
+#On reprend le résultat en octets de la partie "ECRITURE/LECTURE EN OCTETS" = ch_car
+ch_car = octets.decode("utf8")
+ch_car
+>>> 'Amélie et Eugène\n'
+type(ch_car)
+>>> <class 'str'>
+
+#Pour encoder une string dans un certain codec, on utilise la fonction .encode()
+chaine = "Bonne fête de Noël"
+octets_u = chaine.encode("Utf-8")
+octets_u
+>>>b'Bonne f\xc3\xaate de No\xc3\xabl'
+
+#Lors de l'ouverture d'un fichier, Python utilise automatiquement le codec par défaut du système
+#Des exceptions peuvent survenir au cas ou on tente d'ouvrir un fichier qui n'est pas encodé dans le codec standard
+#Dans ce cas, on obtient une exception dans la csl
+#On peut spécifier un codec a utiliser dans la fonction open()
+fichier =open("test.txt", "r", encoding ="Latin-1")
+
+#ACCES A N'IMPORTE QUEL CARACTERE UNICODE
+ord(ch) #Renvoie l'identifiant unicode du caractère ch
+chr(num) #Renvoie le caractère pour l'identifiant num Unicode spécifié
 #TUPLES
-
 #Les tuples sont des objets immutables; c'est à dire que une fois qu'ils sont créés, on ne peut plus les modifier
-#On les utilise rarement mais Python lui les utilisent en fond pour effectuer différentes actions.
+#On les utilise rarement mais Python les utilise en fond pour effectuer différentes actions, e.g l'échange de valeurs entre 2 variables
 tuple_vide = ()
 tuple_non_vide = (1,) #Est équivalent à ci dessous
 tuple_non_vide = 1, #Attention à la virgule, sans elle ce serait un int
