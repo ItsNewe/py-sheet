@@ -528,3 +528,98 @@ tuple_vide = ()
 tuple_non_vide = (1,) #Est équivalent à ci dessous
 tuple_non_vide = 1, #Attention à la virgule, sans elle ce serait un int
 tuple_avec_plusieurs_valeurs = (1, 2, 5)
+
+#CLASSES
+class personne(): #Création d'une classe "personne"
+  def __init__(self, nom, age): #constructeur de la classe
+    self.prenom=nom #self fait référence à l'objet qu'on est en train de créer
+    self.age=age
+    self.sexe="M" #On peut hardcoder une valeur
+    self._lieu_residence="Paris" #Par convention, on n'accède pas à un attribut commencant par "_" en dehors de la classe
+
+    ##PROPRIETES DE CLASSE
+    def _get_lieu_residence(self): #Méthode qui sera appelée quand on souhaitera accéder en lecture à l'attribut 'lieu_residence'
+    #Même règle que pour les attributs, on n'accède pas à une méthode commencant par "_" en dehors de la classe
+      print("On accède à l'attribut lieu_residence !")
+      return self._lieu_residence
+
+    def _set_lieu_residence(self, nouvelle_residence): #Méthode appelée quand on souhaite modifier le lieu de résidence
+        print("Attention, il semble que {} déménage à {}.".format( \
+                self.prenom, nouvelle_residence))
+        self._lieu_residence = nouvelle_residence
+    # On va dire à Python que notre attribut lieu_residence pointe vers une
+    # propriété
+    lieu_residence = property(_get_lieu_residence, _set_lieu_residence) #nom_propriete = property(methode_accesseur, methode_mutateur, methode_suppression, methode_aide)
+
+    #METHODES SPECIALES
+    def __del__(self): #Méthode appelée quand l'objet est supprimé
+      print("C'est la fin ! On me supprime !")
+
+    def __repr__(self): #Méthode appellée lorsqu'on référence directement un objet, remplace "<__main__.XXX object at 0x00B46A70>"
+      return "Personne: nom({}), prénom({}), âge({})".format(
+              self.nom, self.prenom, self.age)
+    
+    def __str__(self): #Méthode appellée quand on appelle notre objet dans un print()
+        return "{} {}, âgé de {} ans".format(
+                self.prenom, self.nom, self.age)
+    
+    def __getattr__(self, nom):
+      """Si Python ne trouve pas l'attribut nommé nom, il appelle
+      cette méthode. On affiche une alerte"""
+      
+      print("Alerte ! Il n'y a pas d'attribut {} ici !".format(nom))
+
+    def __setattr__(self, nom_attr, val_attr):
+        """Méthode appelée quand on fait objet.nom_attr = val_attr.
+        On se charge d'enregistrer l'objet"""
+  
+      object.__setattr__(self, nom_attr, val_attr)
+      self.enregistrer())
+
+    def __delattr__(self, nom_attr):
+        """On ne peut supprimer d'attribut, on lève l'exception
+        AttributeError"""
+        
+        raise AttributeError("Vous ne pouvez supprimer aucun attribut de cette classe")
+jean = personne("jean", 69)
+jean.age()
+>>>69
+jean.age = 420 #Redéfinition
+jean.age
+>>>420
+
+class Compteur:
+    """Cette classe possède un attribut de classe qui s'incrémente à chaque
+    fois que l'on crée un objet de ce type"""
+
+    objets_crees = 0 # Le compteur vaut 0 au départ
+    def __init__(self):
+        
+        self.compte=0
+        Compteur.objets_crees += 1 À chaque fois qu'on crée un objet, on incrémente le compteur
+
+    def reinit(self): #Méthode d'objet
+      self.compte=0
+
+    def combien(cls): #Méthode de classe affichant combien d'objets ont été créés
+      print("Jusqu'à présent, {} objets ont été créés.".format(
+              cls.objets_crees))
+
+Compteur.objets_crees
+>>>0
+a = Compteur() # On crée un premier objet
+Compteur.objets_crees
+>>>1
+b = Compteur()
+Compteur.objets_crees
+>>>2
+
+class Test:
+    def afficher(): #Fonction statique: ne prend aucun premier argument
+        print("On affiche la même chose.")
+        print("peu importe les données de l'objet ou de la classe.")
+    afficher = staticmethod(afficher)
+
+dir(Test) #Renvoie une liste de toutes les méthodes et attributs liés à l'objet
+
+#PROPRIETES DE CLASSES
